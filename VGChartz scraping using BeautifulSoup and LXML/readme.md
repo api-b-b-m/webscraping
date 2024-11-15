@@ -44,7 +44,13 @@ This project is a Python-based web scraper designed to extract detailed video ga
 
     ```bash
     python vgchartz_scrape.py
-    ```
+    `
+
+2. After the script finishes, open the ouput file:
+
+    ```bash
+    vgchartz_scrape_output.csv
+    ``
 
 ## Result
 
