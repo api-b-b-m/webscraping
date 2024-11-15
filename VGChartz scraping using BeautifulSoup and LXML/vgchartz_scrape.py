@@ -1,5 +1,6 @@
 #import necessary packages
 from bs4 import BeautifulSoup
+from io import StringIO
 from lxml import etree
 from requests.exceptions import ChunkedEncodingError
 from tqdm import tqdm
@@ -55,7 +56,7 @@ for page in tqdm(range(0,total_pages), desc="Processing pages"):
 	body=[]
 	for tr in tr_all:
 		body.extend(tr.find_all('td'))
-	df=pd.concat(pd.read_html(str(body)))
+	df=pd.concat(pd.read_html(StringIO(str(body))))
 	index_number=((per_page*(page!=total_pages))+((total_number-((page-1)*per_page
 			))*(page==total_pages)))+127  			#127 (23+104) is the total number of unwanted rows that gets crawled
 
